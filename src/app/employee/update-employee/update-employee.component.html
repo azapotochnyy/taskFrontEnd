@@ -1,0 +1,65 @@
+<button mat-button routerLink="/employees">Back</button>
+
+<section  style="text-align: center">
+  <mat-card style="height: 100%">
+    <mat-card-title>Update employee</mat-card-title>
+
+    <form [formGroup]="employeeForm" autocomplete="off" novalidate (ngSubmit)="updateeEmployee(employeeForm.value)"
+          style="text-align: center">
+
+      <mat-card-content class="example-container example-container">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Employee's name" formControlName="nameFormControl" id="name">
+          <mat-hint align="end">Not more then 20 characters long (min length 2).</mat-hint>
+          <mat-error *ngIf="hasError('nameFormControl', 'required')">Name is required</mat-error>
+          <mat-error *ngIf="hasError('nameFormControl', 'minlength')">Min length is 2</mat-error>
+          <mat-error *ngIf="hasError('nameFormControl', 'maxlength')">You have more than 20 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Employee's surname" formControlName="surnameFormControl" id="surnamename">
+          <mat-hint align="end">Not more then 20 characters long (min length 2).</mat-hint>
+          <mat-error *ngIf="hasError('surnameFormControl', 'required')">Surname is required</mat-error>
+          <mat-error *ngIf="hasError('surnameFormControl', 'minlength')">Min length is 2</mat-error>
+          <mat-error *ngIf="hasError('surnameFormControl', 'maxlength')">You have more than 20 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Employee's age" formControlName="ageFormControl" id="age">
+          <mat-hint align="end">Min length 1 max 3, only numbers.</mat-hint>
+          <mat-error *ngIf="hasError('ageFormControl', 'required')">Age is required</mat-error>
+          <mat-error *ngIf="hasError('ageFormControl', 'minlength')">Min length is 1</mat-error>
+          <mat-error *ngIf="hasError('ageFormControl', 'maxlength')">You have more than 3 characters</mat-error>
+          <mat-error *ngIf="hasError('ageFormControl', 'pattern')">Use only Numbers</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Citizen" formControlName="citizenFormControl" id="citizen">
+          <mat-hint align="end">Min length 2 max 20</mat-hint>
+          <mat-error *ngIf="hasError('citizenFormControl', 'required')">Citizen is required</mat-error>
+          <mat-error *ngIf="hasError('citizenFormControl', 'minlength')">Min length is 2</mat-error>
+          <mat-error *ngIf="hasError('citizenFormControl', 'maxlength')">You have more than 20 characters</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Phone" formControlName="phoneFormControl" id="phone">
+          <mat-hint align="end">Min length 12 max 20, only numbers</mat-hint>
+          <mat-error *ngIf="hasError('citizenFormControl', 'required')">Phone is required</mat-error>
+          <mat-error *ngIf="hasError('citizenFormControl', 'minlength')">Min length is 12</mat-error>
+          <mat-error *ngIf="hasError('citizenFormControl', 'maxlength')">You have more than 20 characters</mat-error>
+          <mat-error *ngIf="hasError('citizenFormControl', 'pattern')">Use only Numbers</mat-error>
+
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <mat-card-actions align="center">
+        <button mat-raised-button color="primary" [disabled]="!employeeForm.valid">Create</button>
+      </mat-card-actions>
+      <div class="error">{{message}}</div>
+    </form>
+  </mat-card>
+
+
+</section>

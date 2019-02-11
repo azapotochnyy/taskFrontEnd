@@ -1,0 +1,16 @@
+table {
+  width: 100%;
+}
+
+button {
+  color: green;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}

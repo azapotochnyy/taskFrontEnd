@@ -1,0 +1,12 @@
+<section>
+  <mat-tab-group (selectedTabChange)="executeSelectedChange($event)">
+    <mat-tab label="Get All Employees">
+        <app-getall-employees [index]="index"></app-getall-employees>
+    </mat-tab>
+    <mat-tab label="Create new Employee">
+      <app-save-employee></app-save-employee>
+    </mat-tab>
+  </mat-tab-group>
+ </section>
+
+
